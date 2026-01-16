@@ -1,0 +1,20 @@
+{
+  "name": "cronos-weather-server",
+  "version": "1.0.0",
+  "description": "Example: Paid Weather API on Cronos using MCP",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "cronos402": "workspace:*",
+    "hono": "^4.9.12",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "bun-types": "latest",
+    "typescript": "^5.0.0"
+  }
+}
