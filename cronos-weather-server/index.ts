@@ -8,8 +8,11 @@
  * - Paid tool: Get weather for $0.01 per call (in USDC.e)
  * - Free tool: List supported cities
  * - Gasless payments via Cronos facilitator
+ *
+ * Run with: pnpm dev
  */
 
+import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { createMcpHandler, z, CRONOS_FACILITATOR_URL } from "cronos402";
 
@@ -27,7 +30,7 @@ const weatherData: Record<string, { temp: number; condition: string }> = {
 // Create MCP handler with Cronos payment support
 const handler = createMcpHandler(
   (server) => {
-    // ✨ PAID TOOL: Get weather for a city ($0.01 per call)
+    // PAID TOOL: Get weather for a city ($0.01 per call)
     server.paidTool(
       "get_weather",
       "Get current weather for a city (Paid: $0.01 in USDC.e)",
@@ -54,8 +57,8 @@ const handler = createMcpHandler(
           content: [
             {
               type: "text",
-              text: `🌤️ Weather in ${city}:\n` +
-                    `Temperature: ${weather.temp}°C\n` +
+              text: `Weather in ${city}:\n` +
+                    `Temperature: ${weather.temp}C\n` +
                     `Condition: ${weather.condition}`,
             },
           ],
@@ -63,7 +66,7 @@ const handler = createMcpHandler(
       }
     );
 
-    // 🆓 FREE TOOL: List supported cities
+    // FREE TOOL: List supported cities
     server.tool(
       "list_cities",
       "List all supported cities (Free)",
@@ -74,7 +77,7 @@ const handler = createMcpHandler(
           content: [
             {
               type: "text",
-              text: `Supported cities:\n${cities.map((c) => `• ${c}`).join("\n")}`,
+              text: `Supported cities:\n${cities.map((c) => `- ${c}`).join("\n")}`,
             },
           ],
         };
@@ -103,28 +106,32 @@ const handler = createMcpHandler(
   }
 );
 
-// Mount the MCP handler
-app.use("*", (c) => handler(c.req.raw));
-
-// Health check endpoint
+// Health check endpoint (must be before MCP handler)
 app.get("/health", (c) => {
   return c.json({ status: "healthy", network: "cronos-testnet" });
 });
 
-// Export for deployment
-export default app;
+// Mount the MCP handler for all other routes
+app.all("*", async (c) => {
+  const response = await handler(c.req.raw);
+  return response;
+});
 
-// For local development
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+// Start server with Node.js
+const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
-  console.log(`🚀 Cronos Weather API starting...`);
-  console.log(`📡 Server: http://localhost:${port}`);
-  console.log(`💰 Payment: USDC.e on Cronos Testnet`);
-  console.log(`🔗 Facilitator: ${CRONOS_FACILITATOR_URL}`);
+console.log(`\n🚀 Cronos Weather API`);
+console.log(`════════════════════════════════════════════════`);
+console.log(`📡 Server: http://localhost:${port}`);
+console.log(`💰 Payment: USDC.e on Cronos Testnet`);
+console.log(`🔗 Facilitator: ${CRONOS_FACILITATOR_URL}`);
+console.log(`📍 Recipient: 0x7D71f82611BA86BC302A655EC3D2050E98BAf49C`);
+console.log(`════════════════════════════════════════════════`);
+console.log(`\n✅ Ready to accept connections!\n`);
+console.log(`Test with CLI:`);
+console.log(`  cronos402 connect --urls http://localhost:${port} --evm YOUR_PRIVATE_KEY --network cronos-testnet\n`);
 
-  Bun.serve({
-    port,
-    fetch: app.fetch,
-  });
-}
+serve({
+  fetch: app.fetch,
+  port,
+});

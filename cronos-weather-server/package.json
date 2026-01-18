@@ -4,17 +4,19 @@
   "description": "Example: Paid Weather API on Cronos using MCP",
   "type": "module",
   "scripts": {
-    "dev": "bun run index.ts",
+    "dev": "tsx index.ts",
+    "start": "node dist/index.js",
     "build": "tsc"
   },
   "dependencies": {
-    "cronos402": "workspace:*",
+    "cronos402": "^0.1.0",
+    "@hono/node-server": "^1.19.5",
     "hono": "^4.9.12",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "bun-types": "latest",
+    "tsx": "^4.19.0",
     "typescript": "^5.0.0"
   }
 }
