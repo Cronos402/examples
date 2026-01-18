@@ -1,12 +1,12 @@
 # x402-mcp
 
-Minimal paid MCP server using Hono + x402 payments, with an example MCP client. It demonstrates how to expose tools over the Model Context Protocol (MCP) and gate specific tools behind on-chain payment using `mcpay`.
+Minimal paid MCP server using Hono + x402 payments, with an example MCP client. It demonstrates how to expose tools over the Model Context Protocol (MCP) and gate specific tools behind on-chain payment using `cronos402`.
 
 ![](/image.png)
 
 ### Features
 - **MCP server with Hono**: export a `fetch` handler Bun can serve by default.
-- **Payment-gated tools**: enforce pricing via `mcpay` with EVM and Solana addresses.
+- **Payment-gated tools**: enforce pricing via `cronos402` for Cronos blockchain.
 - **Example MCP client**: uses the **Vercel AI SDK** to call MCP tools and automatically handle payment prompts.
 
 ## Quickstart
@@ -36,9 +36,9 @@ Notes:
 - Keys must be testnet keys funded on the respective networks (Base Sepolia / Solana Devnet).
 - The client points at `http://localhost:3000/mcp` and will invoke the tools via MCP.
 
-## What’s included
+## What's included
 
-- `index.ts` — Hono app exporting an MCP server. Payment gating is enabled via `withPayment` from `mcpay`.
+- `index.ts` — Hono app exporting an MCP server. Payment gating is enabled via `withPayment` from `cronos402`.
 - `example/client.ts` — Payment-aware MCP client built with the **Vercel AI SDK**, using `makePaymentAwareClientTransport`.
 - `tsconfig.json` — Strict TypeScript config tuned for Bun.
 
@@ -79,8 +79,6 @@ bun run example/client.ts
 
 ## References
 - **x402**: [x402.rs](https://x402.org)
-- **mcpay (npm)**: [npmjs.com/package/mcpay](https://www.npmjs.com/package/mcpay)
-- **MCPay**: [MCPay.tech](https://mcpay.tech) 
 - **Bun**: [bun.com](https://bun.com)
 - **Hono**: [hono.dev](https://hono.dev)
 - **Model Context Protocol (MCP)**: [modelcontextprotocol.io](https://modelcontextprotocol.io)

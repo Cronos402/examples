@@ -204,7 +204,7 @@ export default function Login() {
           🔐
         </div>
         <h1 style={{ margin: "0 0 0.5rem", color: "#1f2937", fontSize: "1.5rem" }}>
-          Welcome to MCPay
+          Welcome to Cronos402
         </h1>
         <p style={{ margin: "0 0 2rem", color: "#6b7280" }}>
           Sign in with your GitHub account to get started

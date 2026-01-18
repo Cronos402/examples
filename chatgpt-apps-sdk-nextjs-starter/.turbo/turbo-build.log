@@ -1,0 +1,44 @@
+
+> openai-apps-minimal-nextjs@0.1.7 build /Users/apple/dev/cronos/cronos402/examples/chatgpt-apps-sdk-nextjs-starter
+> next build --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/apple/dev/cronos/cronos402/pnpm-lock.yaml as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/apple/dev/cronos/cronos402/examples/chatgpt-apps-sdk-nextjs-starter/pnpm-lock.yaml
+
+   ▲ Next.js 15.5.4 (Turbopack)
+
+   Creating an optimized production build ...
+ ⚠ Slow filesystem detected. The benchmark took 2242ms. If /Users/apple/dev/cronos/cronos402/examples/chatgpt-apps-sdk-nextjs-starter/.next is a network drive, consider moving it to a local folder. If you have an antivirus enabled, consider excluding your project directory.
+ ✓ Finished writing to disk in 292ms
+ ✓ Compiled successfully in 16.5s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/7) ...
+   Generating static pages (1/7) 
+   Generating static pages (3/7) 
+   Generating static pages (5/7) 
+ ✓ Generating static pages (7/7)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                         Size  First Load JS
+┌ ○ /                            8.92 kB         123 kB
+├ ○ /_not-found                      0 B         114 kB
+├ ○ /client-page                 3.87 kB         118 kB
+└ ƒ /mcp                             0 B            0 B
++ First Load JS shared by all     118 kB
+  ├ chunks/0c88c8be53bf9982.js   17.2 kB
+  ├ chunks/5dabae1bd594b8c9.js   59.2 kB
+  ├ chunks/b7f0a8597f39ff50.js   24.1 kB
+  └ other shared chunks (total)  17.3 kB
+
+
+ƒ Middleware                     38.2 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,40 @@
+
+> auth-example@0.1.0 build /Users/apple/dev/cronos/cronos402/examples/auth-example
+> next build --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/apple/dev/cronos/cronos402/pnpm-lock.yaml as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/apple/dev/cronos/cronos402/examples/auth-example/package-lock.json
+
+   ▲ Next.js 15.5.4 (Turbopack)
+
+   Creating an optimized production build ...
+ ⚠ Slow filesystem detected. The benchmark took 818ms. If /Users/apple/dev/cronos/cronos402/examples/auth-example/.next is a network drive, consider moving it to a local folder. If you have an antivirus enabled, consider excluding your project directory.
+ ✓ Finished writing to disk in 127ms
+ ✓ Compiled successfully in 6.9s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/6) ...
+   Generating static pages (1/6) 
+   Generating static pages (2/6) 
+   Generating static pages (4/6) 
+ ✓ Generating static pages (6/6)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                         Size  First Load JS
+┌ ○ /                            11.6 kB         125 kB
+├ ○ /_not-found                      0 B         113 kB
+└ ƒ /api/secret                      0 B            0 B
++ First Load JS shared by all     116 kB
+  ├ chunks/7190b85cd56c482a.js   21.7 kB
+  └ chunks/90c1a511635f9a73.js   75.4 kB
+  └ other shared chunks (total)  18.7 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

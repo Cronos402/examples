@@ -11,8 +11,7 @@
  */
 
 import { Hono } from "hono";
-import { createMcpHandler, z } from "cronos402";
-import { CRONOS_FACILITATOR_URL } from "cronos402/utils";
+import { createMcpHandler, z, CRONOS_FACILITATOR_URL } from "cronos402";
 
 const app = new Hono();
 
@@ -90,7 +89,7 @@ const handler = createMcpHandler(
     // Payment recipient configuration
     recipient: {
       evm: {
-        address: "0xYourWalletAddress", // 👈 Replace with your Cronos wallet address
+        address: "0x7D71f82611BA86BC302A655EC3D2050E98BAf49C", // Test wallet address
         isTestnet: true, // Set to false for mainnet
       },
     },
