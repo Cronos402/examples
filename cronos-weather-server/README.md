@@ -1,13 +1,15 @@
+![Cronos402 Logo](https://raw.githubusercontent.com/Cronos402/assets/main/Cronos402-logo-light.svg)
+
 # Cronos Weather Server Example
 
 A simple paid MCP server that demonstrates how to accept **USDC.e payments on Cronos** using the Cronos402 SDK.
 
 ## Features
 
-- ✅ **Paid Tool**: Get weather for $0.01 per call (paid in USDC.e)
-- ✅ **Free Tool**: List supported cities
-- ✅ **Gasless Payments**: Uses Cronos facilitator for EIP-3009 (user pays $0 gas)
-- ✅ **Cronos Testnet**: Ready for testing with test USDC.e
+- **Paid Tool**: Get weather for $0.01 per call (paid in USDC.e)
+- **Free Tool**: List supported cities
+- **Gasless Payments**: Uses Cronos facilitator for EIP-3009 (user pays $0 gas)
+- **Cronos Testnet**: Ready for testing with test USDC.e
 
 ## How It Works
 
@@ -32,7 +34,7 @@ Edit `index.ts` and replace the recipient address:
 ```typescript
 recipient: {
   evm: {
-    address: "0xYourWalletAddress", // 👈 Your Cronos wallet
+    address: "0xYourWalletAddress", // Your Cronos wallet
     isTestnet: true, // Cronos Testnet
   },
 },
@@ -84,7 +86,7 @@ Get current weather for a city.
 
 **Example Response:**
 ```
-🌤️ Weather in Tokyo:
+Weather in Tokyo:
 Temperature: 25°C
 Condition: Clear
 ```
@@ -96,11 +98,11 @@ List all supported cities.
 **Example Response:**
 ```
 Supported cities:
-• San Francisco
-• New York
-• London
-• Tokyo
-• Sydney
+- San Francisco
+- New York
+- London
+- Tokyo
+- Sydney
 ```
 
 ## Payment Flow
@@ -144,7 +146,8 @@ Compatible with Hono's Cloudflare Workers adapter.
 
 ## Learn More
 
-- [Cronos402 SDK Documentation](../../packages/js-sdk/README.md)
+- **SDK**: [npmjs.com/package/cronos402](https://www.npmjs.com/package/cronos402)
+- **Documentation**: [docs.cronos402.dev](https://docs.cronos402.dev)
 - [Model Context Protocol](https://modelcontextprotocol.io)
 - [x402 Protocol](https://x402.org)
 - [Cronos Blockchain](https://cronos.org)
